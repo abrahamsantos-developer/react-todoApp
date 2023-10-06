@@ -12,8 +12,10 @@ export default function App() {
       return [
         ...todos,
         { id: crypto.randomUUID(), title: newItem, completed: false },
-      ];
-    });
+      ]
+    })
+
+    setNewItem("")
   }
 
   return (
