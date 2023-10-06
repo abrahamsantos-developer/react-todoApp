@@ -12,11 +12,9 @@ export default function App() {
       return [
         ...todos,
         { id: crypto.randomUUID(), title: newItem, completed: false },
-      ] 
-    })
+      ];
+    });
   }
-
-  console.log(todos);
 
   return (
     <>
@@ -32,22 +30,19 @@ export default function App() {
         </div>
         <button className="btn">Add</button>
       </form>
-      <h1 className="header">ToDo List</h1>
+      <h1 className="header">Todo List</h1>
       <ul className="list">
-        <li>
-          <label>
-            <input type="checkbox" />
-            Item 1
-          </label>
-          <button className="btn btn-danger">Delete</button>
-        </li>
-        <li>
-          <label>
-            <input type="checkbox" />
-            Item 2
-          </label>
-          <button className="btn btn-danger">Delete</button>
-        </li>
+        {todos.map((todo) => {
+          return (
+            <li key={todo.id}>
+              <label>
+                <input type="checkbox" checked={todo.completed} />
+                {todo.title}
+              </label>
+              <button className="btn btn-danger">Delete</button>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
