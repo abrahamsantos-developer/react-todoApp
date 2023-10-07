@@ -5,6 +5,15 @@ import { NewTodoForm } from "./NewTodoForm";
 export default function App() {
   const [todos, setTodos] = useState([]);
 
+  function addTodo(title) {
+    setTodos((currentTodos) => {
+      return [
+        ...todos,
+        { id: crypto.randomUUID(), title, completed: false },
+      ]
+    })
+  }
+
   function toggleTodo(id, completed) {
     setTodos((currentTodos) => {
       return currentTodos.map((todo) => {

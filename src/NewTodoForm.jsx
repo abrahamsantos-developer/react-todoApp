@@ -5,17 +5,11 @@ export function NewTodoForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (newItem === "") return
 
-    /*
-    setTodos((currentTodos) => {
-      return [
-        ...todos,
-        { id: crypto.randomUUID(), title: newItem, completed: false },
-      ];
-    });
+    addTodo(newItem);
 
     setNewItem("");
-    */
   }
 
   return (
