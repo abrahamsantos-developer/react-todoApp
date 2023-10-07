@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <>
-    <NewTodoForm />
+    <NewTodoForm onSubmit={addTodo}/>
       <h1 className="header">Todo List</h1>
       <ul className="list">
         {todos.length === 0 && "No todos"}
